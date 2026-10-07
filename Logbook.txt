@@ -1,0 +1,25 @@
+PixelLab Development Logbook
+============================
+
+[2026-10-07 22:09:41 IST]
+- Read instructions.txt completely.
+- Inspected repository contents.
+- Confirmed workspace only contained instructions.txt and was not a Git repository.
+- Began scaffolding the Streamlit PixelLab project at repository root so it can run with `streamlit run app.py`.
+
+[2026-10-07 22:15:36 IST]
+- Created the modular PixelLab codebase: Streamlit app, image-processing modules, tests, README, requirements, Streamlit config, and gitignore.
+- Implemented core algorithms for enhancement, filtering, restoration, edge detection, segmentation, morphology, analysis, and metrics.
+- Added deterministic sample images in assets/sample_images for immediate local and Streamlit Cloud demos.
+- Patched report-page final-image selection to avoid NumPy truth-value errors.
+- Starting automated verification with pytest and app import checks.
+
+[2026-10-07 22:19:28 IST]
+- Created a Python 3.11 virtual environment in .venv and installed all project requirements after network approval.
+- Fixed pytest local import discovery by adding tests/conftest.py.
+- Ran `.venv/bin/pytest`: 5 tests passed.
+- Ran `.venv/bin/python -m compileall app.py modules tests`: compile check passed.
+- Imported app.py successfully and confirmed sample images are discoverable.
+- Started Streamlit with `.venv/bin/streamlit run app.py --server.headless true --server.port 8501 --browser.gatherUsageStats false`.
+- Confirmed the running app responds with HTTP 200 at http://localhost:8501.
+- Patched comparison downloads with stable Streamlit widget keys to avoid duplicate-button errors on pages with multiple before/after views.

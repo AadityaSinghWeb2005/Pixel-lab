@@ -1,0 +1,899 @@
+You are a senior Python developer, computer vision engineer, and Streamlit application developer.
+
+Build a complete, polished, working Streamlit application called:
+
+PIXELLAB
+Interactive Image Processing & Analysis Laboratory
+
+==================================================
+1. PROJECT GOAL
+==================================================
+
+Build an educational image-processing software application using Streamlit.
+
+The project must be strongly aligned with a university Image Processing course and demonstrate practical implementation of classical image-processing concepts.
+
+This is NOT intended to be a full-stack application.
+
+Use Streamlit as the main and only frontend/application framework.
+
+The final application should be easy to run locally and deploy to Streamlit Community Cloud.
+
+The software should feel like a proper academic/research tool rather than a simple image filter demo.
+
+==================================================
+2. TECH STACK
+==================================================
+
+Use Python 3.11.
+
+Main framework:
+- Streamlit
+
+Image Processing:
+- OpenCV
+- NumPy
+- Pillow
+- scikit-image
+- SciPy where required
+
+Visualization:
+- Matplotlib
+- Plotly
+
+Optional:
+- pydicom for DICOM support
+
+Do NOT use:
+- React
+- Node.js
+- FastAPI
+- PostgreSQL
+- Docker unless specifically useful for deployment
+
+Keep the project simple and easy to maintain.
+
+==================================================
+3. APPLICATION STRUCTURE
+==================================================
+
+Create a clean project:
+
+PixelLab/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+├── .streamlit/
+│   └── config.toml
+│
+├── modules/
+│   ├── enhancement.py
+│   ├── filtering.py
+│   ├── restoration.py
+│   ├── segmentation.py
+│   ├── morphology.py
+│   ├── analysis.py
+│   ├── metrics.py
+│   └── utils.py
+│
+└── assets/
+    └── sample_images/
+
+Keep image-processing algorithms separate from Streamlit UI code.
+
+Do not put the entire project inside app.py.
+
+==================================================
+4. MAIN UI
+==================================================
+
+Create a professional Streamlit interface.
+
+Application title:
+
+PixelLab
+
+Subtitle:
+
+Interactive Image Processing & Analysis Laboratory
+
+Use a sidebar for navigation.
+
+Sidebar sections:
+
+1. Home
+2. Image Upload
+3. Enhancement
+4. Filtering
+5. Noise & Restoration
+6. Edge Detection
+7. Segmentation
+8. Morphological Operations
+9. Image Analysis
+10. Quality Metrics
+11. Processing Pipeline
+12. Report
+
+Use Streamlit session_state to maintain the uploaded image and processing results between pages.
+
+==================================================
+5. HOME PAGE
+==================================================
+
+Create a polished landing/dashboard.
+
+Show:
+
+PixelLab
+
+"An interactive laboratory for understanding and experimenting with digital image processing."
+
+Show feature cards:
+
+- Image Enhancement
+- Spatial Filtering
+- Image Restoration
+- Edge Detection
+- Segmentation
+- Morphological Processing
+- Image Analysis
+- Quality Metrics
+
+Also show:
+
+Course Concepts Covered
+
+- Histogram Processing
+- Spatial Filtering
+- Noise Reduction
+- Image Restoration
+- Edge Detection
+- Image Segmentation
+- Morphological Operations
+- Image Quality Evaluation
+
+Include a "Get Started" section.
+
+==================================================
+6. IMAGE UPLOAD
+==================================================
+
+Allow users to upload:
+
+- JPG
+- JPEG
+- PNG
+- BMP
+- TIFF
+- WEBP
+
+Optional DICOM support.
+
+After upload display:
+
+- Image
+- Width
+- Height
+- Number of channels
+- File size
+- Color mode
+
+For grayscale images display:
+
+- Min intensity
+- Max intensity
+- Mean intensity
+- Standard deviation
+
+Use Streamlit session_state to preserve the image.
+
+Handle invalid files gracefully.
+
+==================================================
+7. IMAGE ENHANCEMENT
+==================================================
+
+Implement:
+
+1. Brightness adjustment
+2. Contrast adjustment
+3. Gamma correction
+4. Histogram Equalization
+5. CLAHE
+6. Sharpening
+
+UI:
+
+Original Image | Processed Image
+
+Provide sliders for relevant parameters.
+
+For histogram equalization and CLAHE show:
+
+Original Histogram
+Processed Histogram
+
+==================================================
+8. FILTERING
+==================================================
+
+Implement:
+
+- Mean Filter
+- Gaussian Filter
+- Median Filter
+- Bilateral Filter
+
+Allow the user to select:
+
+Filter type
+Kernel size
+Sigma where applicable
+
+Display:
+
+Original
+Processed
+
+Also show processing time.
+
+==================================================
+9. EDGE DETECTION
+==================================================
+
+Implement:
+
+- Sobel
+- Scharr
+- Prewitt
+- Laplacian
+- Canny
+
+For Canny provide:
+
+Lower threshold
+Upper threshold
+
+Display the edge map.
+
+Explain briefly what the selected algorithm does.
+
+==================================================
+10. NOISE GENERATION
+==================================================
+
+Allow users to add:
+
+- Gaussian Noise
+- Salt & Pepper Noise
+- Speckle Noise
+
+Parameters should be interactive.
+
+Show:
+
+Original
+Noisy Image
+
+Then allow the user to send the noisy image to restoration.
+
+==================================================
+11. IMAGE RESTORATION
+==================================================
+
+Implement:
+
+- Mean filtering
+- Median filtering
+- Gaussian filtering
+- Bilateral filtering
+
+Show:
+
+Original
+Noisy
+Restored
+
+Calculate:
+
+- MSE
+- RMSE
+- PSNR
+- SSIM
+
+Display metrics in clean Streamlit metric cards.
+
+==================================================
+12. IMAGE SEGMENTATION
+==================================================
+
+This is a CORE feature.
+
+Implement:
+
+1. Global Thresholding
+2. Otsu Thresholding
+3. Adaptive Thresholding
+4. Binary Thresholding
+5. Canny-based segmentation
+6. Connected Components
+
+For thresholding provide appropriate parameters.
+
+Display:
+
+Original Image
+Segmented Image
+
+Then calculate:
+
+- Number of regions
+- Area of regions
+- Bounding boxes
+- Centroids
+- Perimeter where applicable
+
+Overlay detected regions on the original image.
+
+==================================================
+13. MORPHOLOGICAL OPERATIONS
+==================================================
+
+Implement:
+
+- Erosion
+- Dilation
+- Opening
+- Closing
+- Morphological Gradient
+
+Parameters:
+
+- Kernel shape
+- Kernel size
+- Number of iterations
+
+Display:
+
+Original
+Processed
+
+Provide a short explanation of each operation.
+
+==================================================
+14. IMAGE ANALYSIS
+==================================================
+
+Create an analysis dashboard.
+
+Display:
+
+- Grayscale histogram
+- RGB histogram when applicable
+- Intensity distribution
+- Mean
+- Median
+- Standard deviation
+- Minimum
+- Maximum
+- Image dimensions
+- Channel information
+
+Use Plotly or Matplotlib.
+
+Charts should be clean and readable.
+
+==================================================
+15. IMAGE QUALITY METRICS
+==================================================
+
+Implement:
+
+MSE
+RMSE
+PSNR
+SSIM
+
+Allow users to select:
+
+Reference Image
+Processed Image
+
+Then calculate and display all metrics.
+
+Include a short explanation:
+
+MSE:
+Average squared pixel error.
+
+PSNR:
+Measures reconstruction quality using a logarithmic scale.
+
+SSIM:
+Measures structural similarity between two images.
+
+==================================================
+16. BEFORE / AFTER COMPARISON
+==================================================
+
+Create a reusable comparison component.
+
+Provide:
+
+- Side-by-side view
+- Original
+- Processed
+
+Also provide an optional image comparison slider if practical.
+
+Allow:
+
+- Zoom
+- Download processed image
+
+==================================================
+17. PROCESSING PIPELINE
+==================================================
+
+Create a simple pipeline feature using Streamlit controls.
+
+User should be able to select multiple operations in sequence.
+
+Example:
+
+Original
+ ↓
+Grayscale
+ ↓
+CLAHE
+ ↓
+Median Filter
+ ↓
+Canny
+ ↓
+Threshold
+ ↓
+Morphological Opening
+ ↓
+Final Result
+
+The user should be able to:
+
+- Add operation
+- Configure parameters
+- Reorder operations if practical
+- Run pipeline
+- Reset pipeline
+
+Show the pipeline visually using a clean representation.
+
+The pipeline should actually execute the selected operations in order.
+
+==================================================
+18. EDUCATIONAL MODE
+==================================================
+
+This is an important feature.
+
+For each algorithm display:
+
+Algorithm
+Purpose
+How it works
+Important parameters
+Expected effect
+
+Example:
+
+Median Filter
+
+Purpose:
+Remove impulse noise while preserving edges.
+
+Simple explanation:
+The filter replaces each pixel with the median value of its neighborhood.
+
+Use expandable Streamlit sections:
+
+"How does this work?"
+
+Do not write excessive textbook content.
+
+Keep explanations simple and student-friendly.
+
+==================================================
+19. MEDICAL IMAGE SUPPORT
+==================================================
+
+Support medical image examples such as:
+
+- X-rays
+- MRI
+- CT-style grayscale images
+
+Optional DICOM support using pydicom.
+
+If DICOM is implemented:
+
+Extract only safe educational metadata.
+
+Do NOT expose sensitive patient information.
+
+Add a visible disclaimer:
+
+"PixelLab is an educational and research tool. It is not a medical diagnostic system."
+
+Do NOT claim disease diagnosis.
+
+==================================================
+20. SAMPLE DATA
+==================================================
+
+Include a few small sample images in:
+
+assets/sample_images/
+
+Examples:
+
+- Grayscale image
+- Natural image
+- Medical-style image
+- Noisy image
+
+Allow users to select:
+
+Upload My Image
+
+OR
+
+Try Sample Image
+
+This makes the deployed application immediately usable.
+
+==================================================
+21. DOWNLOAD RESULTS
+==================================================
+
+Allow users to download:
+
+- Processed image
+- Segmentation result
+- Histogram image where practical
+- Pipeline result
+
+Use Streamlit download_button.
+
+==================================================
+22. REPORT GENERATION
+==================================================
+
+Create a "Generate Report" feature.
+
+The report should contain:
+
+- Project title
+- Uploaded image information
+- Operations performed
+- Parameters
+- Original image
+- Final processed image
+- Histograms
+- Quality metrics
+- Segmentation statistics
+
+Generate a downloadable PDF if practical.
+
+If PDF generation creates unnecessary deployment complexity, generate a downloadable HTML report instead.
+
+Prefer a working report over a complicated implementation.
+
+==================================================
+23. UI / UX
+==================================================
+
+The UI should be polished.
+
+Use:
+
+- Streamlit columns
+- Tabs
+- Expanders
+- Metric cards
+- Sidebar navigation
+- Containers
+- Status messages
+
+Design style:
+
+Modern
+Clean
+Academic
+Professional
+Minimal
+
+Avoid:
+
+- Excessive animations
+- Overly colorful UI
+- Unnecessary text
+- Generic template appearance
+
+Make the application presentation-ready for a university project demonstration.
+
+==================================================
+24. PERFORMANCE
+==================================================
+
+Large images can cause slow processing.
+
+Implement:
+
+- Maximum image dimensions
+- Optional preview resizing
+- Streamlit caching where appropriate
+- Avoid unnecessary image conversions
+
+Use:
+
+st.cache_data
+
+or
+
+st.cache_resource
+
+only where appropriate.
+
+Do not cache user-specific state incorrectly.
+
+==================================================
+25. ERROR HANDLING
+==================================================
+
+Handle:
+
+- No image uploaded
+- Invalid image
+- Unsupported format
+- Corrupted image
+- Very large image
+- Invalid parameter values
+- Grayscale/RGB mismatches
+- Metric calculation errors
+
+Never show raw Python tracebacks to normal users.
+
+Use Streamlit error/warning/info messages.
+
+==================================================
+26. TESTING
+==================================================
+
+Create basic automated tests using pytest.
+
+Test:
+
+- Image loading
+- Grayscale conversion
+- Histogram generation
+- Enhancement functions
+- Filters
+- Noise generation
+- Restoration
+- Segmentation
+- Morphological operations
+- MSE
+- PSNR
+- SSIM
+
+The project must run without errors using:
+
+pytest
+
+==================================================
+27. REQUIREMENTS
+==================================================
+
+Create a clean requirements.txt.
+
+Pin versions only when necessary for Streamlit Cloud compatibility.
+
+Do not include unnecessary dependencies.
+
+Ensure the application works with Python 3.11.
+
+==================================================
+28. STREAMLIT DEPLOYMENT
+==================================================
+
+Prepare the repository specifically for Streamlit Community Cloud.
+
+The application must start with:
+
+streamlit run app.py
+
+Create:
+
+.streamlit/config.toml
+
+if needed.
+
+Do not require:
+
+- Docker
+- Node
+- Database
+- Backend server
+- Separate frontend
+
+Deployment should be as simple as:
+
+1. Push repository to GitHub
+2. Open Streamlit Community Cloud
+3. Select repository
+4. Select app.py
+5. Deploy
+
+Provide complete deployment instructions in README.md.
+
+==================================================
+29. README
+==================================================
+
+Create a professional README containing:
+
+# PixelLab
+
+## Overview
+
+## Features
+
+## Course Alignment
+
+Map features to image-processing concepts:
+
+Course Concept → PixelLab Feature
+
+Examples:
+
+Histogram Processing → Histogram Analysis
+
+Spatial Filtering → Mean/Gaussian/Median/Bilateral Filters
+
+Image Restoration → Noise + Restoration
+
+Edge Detection → Sobel/Canny/Prewitt/Scharr
+
+Segmentation → Thresholding/Otsu/Adaptive/Connected Components
+
+Morphology → Erosion/Dilation/Opening/Closing
+
+Image Quality → MSE/PSNR/SSIM
+
+## Tech Stack
+
+## Installation
+
+## Running Locally
+
+## Testing
+
+## Streamlit Deployment
+
+## Project Structure
+
+## Screenshots
+
+## Limitations
+
+## Future Improvements
+
+==================================================
+30. PROJECT QUALITY
+==================================================
+
+This is an academic software project.
+
+The final result should demonstrate that I understand image-processing concepts rather than simply calling random OpenCV functions.
+
+Each feature should have:
+
+- Working implementation
+- Clean UI
+- Useful visualization
+- Simple explanation
+- Meaningful parameters
+
+Do not create fake buttons or placeholder functionality.
+
+If a feature is not fully implemented, do not expose it as working functionality.
+
+==================================================
+31. DEVELOPMENT PROCESS
+==================================================
+
+First inspect the repository.
+
+Then implement the application incrementally.
+
+Recommended order:
+
+1. Project structure
+2. Image upload
+3. Image analysis
+4. Enhancement
+5. Filtering
+6. Edge detection
+7. Noise generation
+8. Restoration
+9. Metrics
+10. Segmentation
+11. Morphological operations
+12. Processing pipeline
+13. Download functionality
+14. Report generation
+15. Educational explanations
+16. UI polish
+17. Testing
+18. Deployment preparation
+
+After each major feature:
+
+- Run the application
+- Test it with sample images
+- Fix errors
+- Verify output
+
+Do not simply generate code without testing it.
+
+==================================================
+32. FINAL ACCEPTANCE CRITERIA
+==================================================
+
+The project is complete only when:
+
+✓ Streamlit application launches successfully
+✓ Image upload works
+✓ Sample images work
+✓ Enhancement works
+✓ Histogram works
+✓ Filtering works
+✓ Edge detection works
+✓ Noise generation works
+✓ Restoration works
+✓ MSE works
+✓ PSNR works
+✓ SSIM works
+✓ Segmentation works
+✓ Morphological operations work
+✓ Processing pipeline works
+✓ Processed images can be downloaded
+✓ Basic report generation works
+✓ Error handling works
+✓ Tests pass
+✓ README is complete
+✓ Streamlit Cloud deployment configuration works
+
+==================================================
+33. FINAL OUTPUT
+==================================================
+
+After completing the project, provide:
+
+1. Project structure
+2. Features implemented
+3. Course concepts demonstrated
+4. How to run locally
+5. How to deploy on Streamlit Cloud
+6. Testing results
+7. Known limitations
+8. Future improvements
+
+Most importantly:
+
+BUILD THE ACTUAL WORKING APPLICATION.
+
+Do not only provide instructions or sample code.
+
+Run and test the application before declaring it complete.
