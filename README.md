@@ -106,8 +106,7 @@ No Docker, database, Node.js, or backend server is required.
 
 ## Screenshots
 
-Run the application locally to capture screenshots for your report or presentation. The app includes sample images so it can be demonstrated immediately after deployment.
-
+![alt text](image.png)
 ## Limitations
 
 - PDF report generation is intentionally implemented as a lightweight HTML report for simpler Streamlit Cloud deployment.
